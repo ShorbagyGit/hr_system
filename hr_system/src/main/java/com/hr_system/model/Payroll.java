@@ -23,36 +23,20 @@ public class Payroll {
     @JoinColumn(name = "employee_id")  //  FK
     private Employee employee;
 
-    @Transient
-    private Long employeeId;
-
-    @Transient
-    private String employeeName;
-
-    @Transient
-    private String employeePhoto;
     private Double basicSalary;
     private Double bonus;
     private Double deductions;
     private Double netSalary; // (basic + bonus)- deduct= net
 
-    @PostLoad
-    @PostPersist
-    public void fillEmployeeInfo() {
-        if (employee == null) {
-            this.employeeId = null;
-            this.employeeName = null;
-            this.employeePhoto = null;
-            return;
-        }
 
-        this.employeeId = employee.getId();
+//    @Transient
+//    private Long employeeId;
+//
+//    @Transient
+//    private String employeeName;
+//
+//    @Transient
+//    private String employeePhoto;
 
-        String first = employee.getFirstName() != null ? employee.getFirstName() : "";
-        String last = employee.getLastName() != null ? employee.getLastName() : "";
-        String fullName = (first + " " + last).trim();
-        this.employeeName = fullName.isEmpty() ? null : fullName;
 
-        this.employeePhoto = employee.getProfileImage();
-    }
 }
