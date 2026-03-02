@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/edit")
-public class EditMyDataController {
+public class EditDataController {
 
     private final EmployeeRepository employeeRepository;
 
-    public EditMyDataController(EmployeeRepository employeeRepository) {
+    public EditDataController(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
 

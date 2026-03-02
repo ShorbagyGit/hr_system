@@ -19,7 +19,6 @@ public class Payroll {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @ManyToOne
     @JoinColumn(name = "employee_id")  //  FK
     private Employee employee;

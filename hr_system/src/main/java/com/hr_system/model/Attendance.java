@@ -20,11 +20,9 @@ public class Attendance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
-
     private LocalDate date;      // date of attendance
     private String status;       // Present, Absent, or Leave
     private LocalTime checkInTime;
