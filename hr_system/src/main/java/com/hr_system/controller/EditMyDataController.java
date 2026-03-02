@@ -5,7 +5,6 @@ import com.hr_system.model.Employee;
 import org.springframework.web.bind.annotation.*;
 
 
-
 @RestController
 @RequestMapping("/edit")
 public class EditMyDataController {
