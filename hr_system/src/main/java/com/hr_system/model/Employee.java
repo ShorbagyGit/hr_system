@@ -30,10 +30,10 @@ public class Employee {
     private String lastName;
     @Column(unique = true)
     private String email;
-    private int Phone;
+    private Integer  Phone;
     private String password;
     private String department;
-    private double salary;
+    private Integer salary;
     private String joptype;
     private LocalDate hireDate;
 

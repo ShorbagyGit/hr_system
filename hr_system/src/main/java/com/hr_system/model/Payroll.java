@@ -23,8 +23,6 @@ public class Payroll {
     @ManyToOne
     @JoinColumn(name = "employee_id")  //  FK
     private Employee employee;
-
-    private YearMonth month;
     private Double basicSalary;
     private Double bonus;
     private Double deductions;
