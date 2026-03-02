@@ -9,15 +9,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/payroll")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PayrollController {
 
 @Autowired
     private PayrollService payrollService;
-
-
-@GetMapping("/hi")
-public String hi(){return "hi";}
 
 
 @GetMapping("/getall")
