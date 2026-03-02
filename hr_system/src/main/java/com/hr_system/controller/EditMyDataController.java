@@ -27,9 +27,32 @@ public class EditMyDataController {
         OldEmpData.setPhone(updatedEmployee.getPhone());
         OldEmpData.setPassword(updatedEmployee.getPassword());
         OldEmpData.setJoptype(updatedEmployee.getJoptype());
-
+        OldEmpData.setProfileImage(updatedEmployee.getProfileImage());
 
         return employeeRepository.save(OldEmpData);
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//json script
+//{
+//        "firstName": "Gasser",
+//        "lastName": "Shorbagy",
+//        "email": "gasser@example.com",
+//        "Phone": 1012345678,
+//        "salary": 8000,
+//        "password": "123456",
+//        "joptype": "FullTime"
+//        }

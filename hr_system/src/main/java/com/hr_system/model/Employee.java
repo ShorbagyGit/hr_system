@@ -36,6 +36,6 @@ public class Employee {
     private Integer salary;
     private String joptype;
     private LocalDate hireDate;
-
+    private String profileImage;
 
 }
