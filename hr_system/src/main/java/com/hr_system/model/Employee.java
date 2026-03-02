@@ -30,7 +30,7 @@ public class Employee {
     private String lastName;
     @Column(unique = true)
     private String email;
-    private Integer  Phone;
+    private Integer Phone;
     private String password;
     private String department;
     private Integer salary;
