@@ -22,7 +22,7 @@ public class CandidateController {
     }
 
     @GetMapping("/{id}")
-    public Candidate GetOneDepartment(@PathVariable Long id)
+    public Candidate GetOneCandidate(@PathVariable Long id)
     {
         return candidateService.getCandidateById(id) ;
     }
@@ -39,12 +39,17 @@ public class CandidateController {
         candidateService.deleteCandidate(id);
     }
 
-    @PutMapping("/updatestatus/{id}")
+    @PutMapping("/update-status/{id}")
     public Candidate updateCandidateStatus(@PathVariable Long id, @RequestBody String status) {
         Candidate candidate = candidateService.getCandidateById(id);
         candidate.setStatus(status);
         return candidateService.saveCandidate(candidate);
     }
 
+    @PostMapping("/save")
+    public Candidate saveCandidate(@RequestBody Candidate candidate)
+    {
+    return candidateService.saveCandidate(candidate);
+    }
 
 }
