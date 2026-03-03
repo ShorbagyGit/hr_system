@@ -25,7 +25,8 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Department depart;
-
+    @Column(unique = true)
+    private Integer NationalId;
     private String firstName;
     private String lastName;
     @Column(unique = true)
