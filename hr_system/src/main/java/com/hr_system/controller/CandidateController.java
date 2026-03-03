@@ -39,5 +39,12 @@ public class CandidateController {
         candidateService.deleteCandidate(id);
     }
 
+    @PutMapping("/updatestatus/{id}")
+    public Candidate updateCandidateStatus(@PathVariable Long id, @RequestBody String status) {
+        Candidate candidate = candidateService.getCandidateById(id);
+        candidate.setStatus(status);
+        return candidateService.saveCandidate(candidate);
+    }
+
 
 }
