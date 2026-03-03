@@ -38,10 +38,17 @@ public class EmployeeController {
     public Employee getEmployee(@PathVariable Long id) {
         return employeeService.getEmployeeById(id);
     }
+
     @DeleteMapping("/delete/{id}")
     public void deleteEmployee(@PathVariable Long id)
     {
         employeeService.deleteEmployee(id);
     }
+
+    @GetMapping("/search")
+    public List<Employee> searchEmployees(@RequestParam String keyword) {
+        return employeeService.searchEmployees(keyword);
+    }
+
 
 }

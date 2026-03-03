@@ -11,7 +11,8 @@ import java.util.List;
 @RequestMapping("/candidate")
 @CrossOrigin(origins = "http://localhost:3000")
 public class CandidateController {
-@Autowired
+
+    @Autowired
     private CandidateService candidateService ;
 
     @GetMapping("/getall")
@@ -37,5 +38,6 @@ public class CandidateController {
     {
         candidateService.deleteCandidate(id);
     }
+
 
 }

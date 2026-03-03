@@ -30,9 +30,13 @@ public class EmployeeService {
         employeeRepository.deleteById(id);
     }
 
-    public Employee findbyemail(String email)
-    {
+    public Employee findbyemail(String email) {
         return employeeRepository.findByEmail(email);
     }
 
+    public List<Employee> searchEmployees(String keyword) {
+        return employeeRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrEmailContainingIgnoreCase(
+                keyword, keyword, keyword
+        );
+    }
 }
