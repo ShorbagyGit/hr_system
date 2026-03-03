@@ -29,4 +29,15 @@ public class LeaveService {
         leaveRepository.deleteById(id);
     }
 
+
+    public Leave updateStatus(Long id, String status) {
+
+        Leave leave = leaveRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Leave not found"));
+
+        leave.setStatus(status);
+
+        return leaveRepository.save(leave);
+    }
+
 }

@@ -44,4 +44,14 @@ public List<Leave> getallLeaves()
          leaveService.deleteLeave(id); ;
     }
 
+    @PutMapping("/approve/{id}")
+    public Leave approveLeave(@PathVariable Long id) {
+        return leaveService.updateStatus(id, "APPROVED");
+    }
+
+    @PutMapping("/reject/{id}")
+    public Leave rejectLeave(@PathVariable Long id) {
+        return leaveService.updateStatus(id, "REJECTED");
+    }
+
 }
