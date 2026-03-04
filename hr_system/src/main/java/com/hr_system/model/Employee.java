@@ -22,9 +22,6 @@ public class Employee {
     private Long id;
 
 
-    @ManyToOne
-    @JoinColumn(name = "department_id")
-    private Department depart;
     @Column(unique = true)
     private Integer NationalId;
     private String firstName;
@@ -34,7 +31,8 @@ public class Employee {
     @Column(unique = true)
     private Integer Phone;
     private String password;
-    private String department;
+    private String department;  //only temp to store data
+
     private Integer salary;
     private String joptype;
     private LocalDate hireDate;

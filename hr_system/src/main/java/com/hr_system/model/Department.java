@@ -19,9 +19,7 @@ public class Department {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long dep_id;
-
     private String dep_name;
     private String location;
 

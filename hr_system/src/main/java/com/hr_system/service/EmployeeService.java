@@ -39,4 +39,9 @@ public class EmployeeService {
                 keyword, keyword, keyword
         );
     }
+
+    public List<Employee> findByDepartment(String department)
+    {
+        return employeeRepository.findByDepartment(department);
+    }
 }

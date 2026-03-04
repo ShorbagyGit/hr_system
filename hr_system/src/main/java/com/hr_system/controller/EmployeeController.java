@@ -50,5 +50,9 @@ public class EmployeeController {
         return employeeService.searchEmployees(keyword);
     }
 
+    @GetMapping("/department/{department}")
+    public List<Employee> getEmployeesByDepartment(@PathVariable String department) {
+        return employeeService.findByDepartment(department);
+    }
 
 }
