@@ -54,4 +54,12 @@ public List<Leave> getallLeaves()
         return leaveService.updateStatus(id, "REJECTED");
     }
 
+
+    //this code to make a profile for employee and we return data like ( employee data ,Leave requests,attendance)
+
+    @GetMapping("/employeeLeave/{employeeId}")
+    public List<Leave> findLeavesByEmployeeId(@PathVariable Long employeeId) {
+        return leaveService.getLeavesByEmployeeId(employeeId);
+    }
+
 }

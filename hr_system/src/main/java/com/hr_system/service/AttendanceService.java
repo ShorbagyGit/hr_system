@@ -30,4 +30,8 @@ public class AttendanceService {
         attendanceRepository.deleteById(id);
     }
 
+    public List<Attendance> getAttendancesByEmployeeId(Long employeeId) {
+        return attendanceRepository.findAttendanceByEmployeeId(employeeId);
+    }
+
 }

@@ -29,7 +29,6 @@ public class LeaveService {
         leaveRepository.deleteById(id);
     }
 
-
     public Leave updateStatus(Long id, String status) {
 
         Leave leave = leaveRepository.findById(id)
@@ -38,6 +37,11 @@ public class LeaveService {
         leave.setStatus(status);
 
         return leaveRepository.save(leave);
+    }
+
+
+    public List<Leave> getLeavesByEmployeeId(Long employeeId) {
+        return leaveRepository.findLeaveByEmployeeId(employeeId);
     }
 
 }

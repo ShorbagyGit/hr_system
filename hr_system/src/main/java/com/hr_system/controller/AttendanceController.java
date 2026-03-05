@@ -1,6 +1,7 @@
 package com.hr_system.controller;
 
 import com.hr_system.model.Attendance;
+import com.hr_system.model.Leave;
 import com.hr_system.service.AttendanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,5 +43,13 @@ public class AttendanceController {
     public void deleteAttendance(@PathVariable Long id) {
          attendanceService.deleteAttendance(id);
     }
+
+
+    //this code to make a profile for employee and we return data like ( employee data ,Leave requests,attendance)
+    @GetMapping("/employeeAttendance/{employeeId}")
+public List<Attendance> getAttendancesByEmployeeId(@PathVariable Long employeeId) {
+    return attendanceService.getAttendancesByEmployeeId(employeeId);
+}
+
 
 }

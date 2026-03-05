@@ -21,17 +21,9 @@ public class Attendance {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 
-//    @Transient
-//    private Long employeeId;
-//
-//    @Transient
-//    private String employeeName;
-//
-//    @Transient
-//    private String employeePhoto;
     private LocalDate date;      // date of attendance
     private String status;       // Present, Absent, or Leave
     private LocalTime checkInTime;
@@ -39,6 +31,4 @@ public class Attendance {
 
 
         }
-
-
 
