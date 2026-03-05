@@ -30,12 +30,4 @@ public class Leave {
     private String type;   // Sick, Vacation, etc.
     private String status; // here is it approved the or not
 
-//    @Transient
-//    private Long employeeId;
-//
-//    @Transient
-//    private String employeeName;
-//
-//    @Transient
-//    private String employeePhoto;
 }

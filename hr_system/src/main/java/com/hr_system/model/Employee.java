@@ -32,7 +32,6 @@ public class Employee {
     private Integer Phone;
     private String password;
     private String department;  //only temp to store data
-
     private Integer salary;
     private String joptype;
     private LocalDate hireDate;
