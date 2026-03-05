@@ -16,7 +16,7 @@ public class InsuranceController {
     private InsuranceService insuranceService;
 
     @GetMapping("/getall")
-    public List<Insurance> getAllInsurance (@PathVariable Long id)
+    public List<Insurance> getAllInsurance ()
     {
         return insuranceService.getAllInsurance();
     }
