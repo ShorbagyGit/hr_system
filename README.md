@@ -15,9 +15,9 @@ Simplify HR processes, track employee data, and keep your organization running s
 
 Employee Management – Add, update, and view employee details.
 
-Attendance Management – Track daily attendance and generate reports.
+Attendance Management – Track daily attendance 
 
-Payroll Management (Under Development) – Automated salary calculation and payroll processing.
+Payroll Management (Under Development) – Automated salary calculation 
 
 Insurance Management – Manage employee insurance details and claims.
 
