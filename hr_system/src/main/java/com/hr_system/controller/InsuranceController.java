@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/insurance")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class InsuranceController {
 
     @Autowired
