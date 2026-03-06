@@ -1,46 +1,26 @@
-HR Management System
+🏢 HR Management System
+
+
+
+
+
+
 Overview
 
-The HR Management System is a web-based application designed to streamline human resource operations in an organization. It manages employee information, tracks attendance, handles payroll processing, manages insurance, leave requests, and maintains a history of employee-related events. This system is intended to make HR processes more efficient, accurate, and centralized.
+The HR Management System is a modern, web-based solution for managing all aspects of employee life in an organization. From attendance tracking to leave management, insurance, and payroll, this system centralizes HR operations for efficiency and accuracy.
 
-Features
+Simplify HR processes, track employee data, and keep your organization running smoothly.
 
-The system currently includes the following modules:
+🔥 Features
 
-Employee Management
+Employee Management – Add, update, and view employee details.
 
-Store and manage employee details such as personal information, job role, department, and contact details.
+Attendance Management – Track daily attendance and generate reports.
 
-Update or remove employee records as needed.
+Payroll Management (Under Development) – Automated salary calculation and payroll processing.
 
-Attendance Management
+Insurance Management – Manage employee insurance details and claims.
 
-Track daily attendance for all employees.
+Leave Requests – Submit, approve, and track employee leave requests.
 
-Generate attendance reports for HR review.
-
-Payroll Management (In Progress)
-
-Calculate salaries based on attendance and allowances.
-
-Process deductions and bonuses. (Under development)
-
-Insurance Management
-
-Track employee insurance policies and coverage details.
-
-Manage claims and renewals.
-
-Leave Requests
-
-Employees can submit leave requests.
-
-HR can approve or reject requests.
-
-Track leave balances for each employee.
-
-Employee Events History
-
-Record important events such as promotions, transfers, warnings, and achievements.
-
-Maintain a historical log for reference.
+Employee Events History – Keep a record of promotions, transfers, and achievements.
