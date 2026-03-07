@@ -54,7 +54,7 @@ public class AttendanceService {
         LocalTime checkOut = attendance.getCheckOutTime();
 
         if (checkIn == null || checkOut == null) {
-            // If times are missing, skip calculation
+            // If times are missing, mark as absent/incomplete
             attendance.setWorkHours(0L);
             attendance.setLateMinutes(0L);
             attendance.setEarlyLeaveMinutes(0L);
@@ -62,9 +62,11 @@ public class AttendanceService {
             return;
         }
 
-        // Calculate total work hours
+        // Calculate total work hours (integer hours only)
         Duration workDuration = Duration.between(checkIn, checkOut);
-        attendance.setWorkHours(workDuration.toHours());
+        long totalMinutes = workDuration.toMinutes();
+        long hours = totalMinutes / 60; // full hours only
+        attendance.setWorkHours(hours);
 
         // Initialize
         long lateMinutes = 0;
