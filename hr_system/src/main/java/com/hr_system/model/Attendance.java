@@ -23,7 +23,7 @@ public class Attendance {
     @ManyToOne
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
-  
+
     private LocalDate date;      // date of attendance
     private String status;       // Present, Absent, or Leave
     private LocalTime checkInTime;

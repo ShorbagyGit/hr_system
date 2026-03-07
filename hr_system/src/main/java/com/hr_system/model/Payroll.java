@@ -29,14 +29,4 @@ public class Payroll {
     private Double netSalary; // (basic + bonus)- deduct= net
 
 
-//    @Transient
-//    private Long employeeId;
-//
-//    @Transient
-//    private String employeeName;
-//
-//    @Transient
-//    private String employeePhoto;
-
-
 }

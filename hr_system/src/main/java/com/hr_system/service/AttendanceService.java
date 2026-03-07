@@ -42,9 +42,7 @@ public class AttendanceService {
     }
 
 
-    // ==============================
     // Attendance Calculation Logic
-    // ==============================
     private void calculateAttendance(Attendance attendance) {
 
         LocalTime checkIn = attendance.getCheckInTime();

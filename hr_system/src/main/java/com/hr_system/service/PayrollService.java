@@ -25,8 +25,5 @@ public class PayrollService {
         payrollRepository.deleteById(id);
     }
 
-    // Tax calculation (example: 10% of basic)
-    public Double calculateTax(Double basicSalary) {
-        return basicSalary * 0.10; // 10% of the salary
-    }
+
 }
