@@ -15,17 +15,21 @@ public class AttendanceService {
     // Fixed working hours
     private static final LocalTime WORK_START = LocalTime.of(9, 0);
     private static final LocalTime WORK_END = LocalTime.of(17, 0);
+
     @Autowired
     private AttendanceRepository attendanceRepository;
 
+    // Get all attendances
     public List<Attendance> getAllAttendances() {
         return attendanceRepository.findAll();
     }
 
+    // Get attendance by ID
     public Attendance getAttendanceById(Long id) {
         return attendanceRepository.findById(id).orElse(null);
     }
 
+    // Save or update attendance
     public Attendance saveAttendance(Attendance attendance) {
 
         calculateAttendance(attendance);
@@ -33,14 +37,15 @@ public class AttendanceService {
         return attendanceRepository.save(attendance);
     }
 
+    // Delete attendance
     public void deleteAttendance(Long id) {
         attendanceRepository.deleteById(id);
     }
 
+    // Get attendances for a specific employee
     public List<Attendance> getAttendancesByEmployeeId(Long employeeId) {
         return attendanceRepository.findAttendanceByEmployeeId(employeeId);
     }
-
 
     // Attendance Calculation Logic
     private void calculateAttendance(Attendance attendance) {
@@ -49,28 +54,41 @@ public class AttendanceService {
         LocalTime checkOut = attendance.getCheckOutTime();
 
         if (checkIn == null || checkOut == null) {
+            // If times are missing, skip calculation
+            attendance.setWorkHours(0L);
+            attendance.setLateMinutes(0L);
+            attendance.setEarlyLeaveMinutes(0L);
+            attendance.setStatus("Incomplete");
             return;
         }
 
-        // Calculate Work Hours
+        // Calculate total work hours
         Duration workDuration = Duration.between(checkIn, checkOut);
         attendance.setWorkHours(workDuration.toHours());
 
-        // Calculate Late Minutes
+        // Initialize
+        long lateMinutes = 0;
+        long earlyLeaveMinutes = 0;
+        String status = "Present";
+
+        // Late arrival
         if (checkIn.isAfter(WORK_START)) {
-
-            long lateMinutes =
-                    Duration.between(WORK_START, checkIn).toMinutes();
-
-            attendance.setLateMinutes(lateMinutes);
-            attendance.setStatus("Late");
-
-        } else {
-
-            attendance.setLateMinutes(0L);
-            attendance.setStatus("Present");
+            lateMinutes = Duration.between(WORK_START, checkIn).toMinutes();
+            status = "Late";
         }
 
-    }
+        // Early leave
+        if (checkOut.isBefore(WORK_END)) {
+            earlyLeaveMinutes = Duration.between(checkOut, WORK_END).toMinutes();
+            if (status.equals("Late")) {
+                status = "Late & Early Leave";
+            } else {
+                status = "Early Leave";
+            }
+        }
 
+        attendance.setLateMinutes(lateMinutes);
+        attendance.setEarlyLeaveMinutes(earlyLeaveMinutes);
+        attendance.setStatus(status);
+    }
 }
