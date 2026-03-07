@@ -3,6 +3,7 @@ package com.hr_system.controller;
 import com.hr_system.model.Employee;
 import com.hr_system.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,8 +41,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteEmployee(@PathVariable Long id)
-    {
+    public void deleteEmployee(@PathVariable Long id) {
         employeeService.deleteEmployee(id);
     }
 
