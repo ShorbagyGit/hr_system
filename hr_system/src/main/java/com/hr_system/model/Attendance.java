@@ -23,14 +23,13 @@ public class Attendance {
     @ManyToOne
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
-    /// ////////////////////////////////////////////////
-    private String month;
-    private Long attencount;
-    /// ////////////////////////////////////////////////
+  
     private LocalDate date;      // date of attendance
     private String status;       // Present, Absent, or Leave
     private LocalTime checkInTime;
     private LocalTime checkOutTime;
+    private Long workHours;     // total hours worked
+    private Long lateMinutes;   // minutes late
 
-        }
+}
 
