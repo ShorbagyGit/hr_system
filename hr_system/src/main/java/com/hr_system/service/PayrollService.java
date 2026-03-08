@@ -17,12 +17,11 @@ public class PayrollService {
 
     @Autowired
     private PayrollRepository payrollRepository;
-
     @Autowired
     private AttendanceRepository attendanceRepository;
-
     @Autowired
     private EmployeeRepository employeeRepository;
+
 
     // Get all saved payrolls
     public List<Payroll> getAllPayrolls() {
@@ -39,7 +38,8 @@ public class PayrollService {
         payrollRepository.deleteById(id);
     }
 
-    // Calculate total worked hours for one employee
+
+    // Calculate total worked hours for only one employee
     public double calculateTotalWorkedHours(Long employeeId) {
         List<Attendance> attendances = attendanceRepository.findAttendanceByEmployeeId(employeeId);
         double totalHours = 0;
@@ -55,11 +55,12 @@ public class PayrollService {
         List<Employee> employees = employeeRepository.findAll();
         List<Payroll> payrollList = new ArrayList<>();
 
+// here we will take all emp data the record in the database
         for (Employee emp : employees) {
 
             double totalHours = calculateTotalWorkedHours(emp.getId());
             double basicSalary = emp.getSalary();
-            double expectedHours = 8 * 30; // expected hours per month
+            double expectedHours = 8 * 22; // 8 hours in a day * 22 day
             double hourlyRate = basicSalary / expectedHours;
             double deduction = 0;
             if (totalHours < expectedHours) {
@@ -75,7 +76,7 @@ public class PayrollService {
             payroll.setDeductions(deduction);
             payroll.setNetSalary(netSalary);
 
-            payrollRepository.save(payroll); // <-- save to database
+            payrollRepository.save(payroll);
             payrollList.add(payroll);
         }
 
