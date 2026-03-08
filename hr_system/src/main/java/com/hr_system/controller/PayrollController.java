@@ -12,27 +12,32 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class PayrollController {
 
-@Autowired
+    @Autowired
     private PayrollService payrollService;
 
+    // ==================== GENERATE & SAVE PAYROLL ====================
+    // This endpoint calculates payroll from attendance and saves to DB
+    @GetMapping("/generate")
+    public List<Payroll> generatePayroll() {
+        return payrollService.generateAndSavePayrollForAllEmployees();
+    }
 
-@GetMapping("/getall")
-    public List<Payroll> getallpayrolls()
-{
-    return payrollService.getAllPayrolls();
-}
+    // ==================== GET ALL PAYROLL ====================
+    // Fetch all saved payroll records from DB
+    @GetMapping
+    public List<Payroll> getAllPayrolls() {
+        return payrollService.getAllPayrolls();
+    }
 
+    // ==================== GET PAYROLL BY ID ====================
+    @GetMapping("/{id}")
+    public Payroll getPayrollById(@PathVariable Long id) {
+        return payrollService.getPayrollById(id);
+    }
 
-@GetMapping("/{id}")
-    public Payroll getonepayroll(@PathVariable Long id )
-{
-    return payrollService.getPayrollById(id);
-}
-
-@DeleteMapping ("/delete/{id}")
-    public void deletepayroll(@PathVariable Long id )
-{
-      payrollService.deletePayroll(id);
-}
-
+    // ==================== DELETE PAYROLL ====================
+    @DeleteMapping("/delete/{id}")
+    public void deletePayroll(@PathVariable Long id) {
+        payrollService.deletePayroll(id);
+    }
 }
