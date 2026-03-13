@@ -17,7 +17,7 @@ Employee Management – Add, update, and view employee details.
 
 Attendance Management – Track daily attendance 
 
-Payroll Management (Under Development) – Automated salary calculation 
+Payroll Management – Automated salary calculation 
 
 Insurance Management – Manage employee insurance details and claims.
 
